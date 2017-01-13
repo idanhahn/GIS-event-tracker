@@ -20,11 +20,7 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [
-        "./public/js/cancer-mvp.js",
-        "./public/js/cancer-mvp-functions.js",
-        "./public/js/custom-map.js"
-      ],
+      "scripts": [],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -53,11 +49,11 @@
     },
     "spec": {
       "class": false,
-      "component": true,
+      "component": false,
       "directive": true,
       "module": false,
       "pipe": true,
-      "service": true
+      "service": false
     }
   }
 }

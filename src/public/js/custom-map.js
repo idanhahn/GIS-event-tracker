@@ -11,6 +11,16 @@ function initMap() {
     alert(e)
   })
   
+  var haifa = {
+    lat: 32.805,
+    lng: 35.060
+  };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    center: haifa
+  });
+
+
   var starCountRef = firebase.database().ref('clicks');
   starCountRef.on('value', function(snapshot) {
 
