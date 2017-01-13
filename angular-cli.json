@@ -20,7 +20,11 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "./public/js/cancer-mvp.js",
+        "./public/js/cancer-mvp-functions.js",
+        "./public/js/custom-map.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
