@@ -9,10 +9,19 @@ import {Component, OnInit, Input} from '@angular/core';
 export class InputFormComponent implements OnInit {
 
   @Input() address: string;
+  
+  incidentSelected = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+  
+  onSelect(selectID){
+    console.log(selectID)
+    if (selectID == 'incident'){
+      this.incidentSelected = true;
+    }
   }
 
 }
