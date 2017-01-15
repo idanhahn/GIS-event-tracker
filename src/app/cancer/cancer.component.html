@@ -1,0 +1,15 @@
+<div class="cancer">
+  <div class="cancer-title">
+    מקרה תחלואה
+  </div>
+  <div class="cancer-type">
+    {{cancer.description}}
+  </div>
+  <div class="cancer-address">
+    {{cancer.address}}
+  </div>
+  <div class="cancer-date">
+    <strong>דווח בתאריך: </strong>
+    {{cancer.date | date: 'dd/MM/yyyy'}}
+  </div>
+</div>

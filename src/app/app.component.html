@@ -1,6 +1,54 @@
+<sebm-google-map id="map"
+                 [latitude]="center.lat" [longitude]="center.lng" [zoom]="center.zoom"
+                 [draggableCursor]="'pointer'"
+                 [streetViewControl]="false"
+                 [disableDoubleClickZoom]="true"
+                 (mapDblClick)="onMapClick($event)"
+                 (mapRightClick)="onMapClick($event)"
+>
 
-<sebm-google-map id="map" [latitude]="center.lat" [longitude]="center.lng" [zoom]="center.zoom" (mapClick)="onMapClick($event)">
+  <sebm-google-map-marker *ngFor="let item of cancers | async"
+                          [latitude]="item.lat - 0.0018" [longitude]="item.lng"
+                          [opacity]="0"
+                          [iconUrl]="'./public/images/marker1.png'"
+  >
 
+    <sebm-google-map-info-window
+                                 class="cancer-info-window"
+                                 [disableAutoPan]="true"
+                                 [zIndex]="999999"
+    >
+      <app-cancer [cancer]="item"></app-cancer>
+    </sebm-google-map-info-window>
+
+  </sebm-google-map-marker>
+
+  <sebm-google-map-circle *ngFor="let item of cancers | async"
+                          [latitude]="item.lat" [longitude]="item.lng"
+                          [fillColor]="'#FF0000'"
+                          [fillOpacity]="0.6"
+                          [radius]="100"
+                          [clickable]="false">
+
+
+  </sebm-google-map-circle>
+
+
+
+
+  <sebm-google-map-marker *ngFor="let item of events | async"
+                          [latitude]="item.lat" [longitude]="item.lng"
+                          [iconUrl]="'./public/images/bh_32.png'"
+  >
+    <sebm-google-map-info-window
+      class="event-info-window"
+      [disableAutoPan]="true"
+
+    >
+      <app-incident [incident]="item"></app-incident>
+
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
 </sebm-google-map>
 
 
@@ -9,6 +57,6 @@
     <h4 class="modal-title">הוסף מקרה</h4>
   </modal-header>
   <modal-body>
-    <app-input-form [address]="address"></app-input-form>
+    <app-input-form [address]="address" [latLng]="selectedCoords" (submit)="submit()"></app-input-form>
   </modal-body>
 </modal>

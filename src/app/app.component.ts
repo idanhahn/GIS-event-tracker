@@ -1,12 +1,25 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MapService} from "./map.service";
-import {Response} from "@angular/http";
 import {ModalComponent} from "ng2-bs3-modal/ng2-bs3-modal";
-
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 export interface LatLng{
   lat: number,
   lng: number
+}
+
+export interface CancerEvent{
+  type: string,
+  description: string,
+  lat: number,
+  lng: number,
+  date: number,
+  address: string,
+  name: string,
+  phone: number,
+  email: string,
+  likes: number
+  
 }
 
 @Component({
@@ -18,6 +31,8 @@ export class AppComponent  implements OnInit {
 
   @ViewChild('modal')
   modal: ModalComponent;
+  cancers: FirebaseListObservable<CancerEvent[]>;
+  events:  FirebaseListObservable<CancerEvent[]>;
 
   center = {
     lat: 32.805,
@@ -26,30 +41,37 @@ export class AppComponent  implements OnInit {
   };
 
   address: string;
-
-  constructor(private ms: MapService){}
+  selectedCoords: LatLng;
+  
+  
+  constructor(private ms: MapService, af: AngularFire){
+    this.cancers = af.database.list('/cancers');
+    this.events = af.database.list('/events');
+  }
 
   ngOnInit(){
   }
 
 
   onMapClick(event){
-    console.log(event)
-    let coord:LatLng = {
+    this.selectedCoords = {
       lat: event.coords.lat,
       lng: event.coords.lng
     }
 
-    this.ms.getGeoCode(coord)
+    this.ms.getGeoCode(this.selectedCoords)
       .subscribe(
         (address: string) => {
 
           this.address = address;
-          
           this.modal.open()
 
         }
       )
   }
 
+  submit(){
+    this.modal.close();
+  }
+  
 }

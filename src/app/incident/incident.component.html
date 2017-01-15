@@ -1,0 +1,21 @@
+<div class="incident">
+  <div class="incident-title">
+    אירוע זיהום אוויר חמור
+  </div>
+  <div class="incident-address">
+    {{incident.address}}
+  </div>
+  <div class="incident-description">
+    {{incident.description}}
+  </div>
+  <div class="incident-date">
+    <strong>דווח ע"י</strong>
+    {{incident.name}}
+    בתאריך:
+    {{incident.date| date: 'dd/MM/yyyy'}}
+  </div>
+  <div class="incident-comments">
+    {{incident.likes}}<i class="fa fa-thumbs-o-up" (click)="onClick()" aria-hidden="true"></i>
+  </div>
+
+</div>

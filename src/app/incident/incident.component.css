@@ -1,0 +1,39 @@
+.incident{
+  margin-top: 18px;
+}
+
+.incident-title{
+  font-family: 'Suez One', serif;
+}
+.incident-type{
+  font-family: 'Alef', serif;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-right: 4px;
+}
+
+.incident-address{
+  font-family: 'Alef', serif;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.incident-description{
+  font-family: 'Alef', serif;
+  font-weight: 700;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.incident-date{
+  font-family: 'Alef', serif;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  margin-right: 4px;
+}
+
+.incident-comments{
+  float: left;
+  cursor: pointer;
+}

@@ -1,0 +1,28 @@
+.cancer{
+  margin-top: 18px;
+}
+
+.cancer-title{
+  font-family: 'Suez One', serif;
+}
+.cancer-type{
+  font-family: 'Alef', serif;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-right: 4px;
+}
+
+.cancer-address{
+  font-family: 'Alef', serif;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.cancer-date{
+  font-family: 'Alef', serif;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  margin-right: 4px;
+}
+
