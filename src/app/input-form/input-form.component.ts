@@ -60,7 +60,7 @@ export class InputFormComponent implements OnInit, OnChanges{
     this.eventForm = new FormGroup({
       'type': new FormControl('', Validators.required),
       'address': new FormControl('', Validators.required),
-      'date': new FormControl('', Validators.required),
+      'date': new FormControl(''),
       'description': new FormControl(''),
       'anonymous': new FormControl(),
       'name': new FormControl(''),

@@ -1,56 +1,67 @@
-<sebm-google-map id="map"
-                 [latitude]="center.lat" [longitude]="center.lng" [zoom]="center.zoom"
-                 [draggableCursor]="'pointer'"
-                 [streetViewControl]="false"
-                 [disableDoubleClickZoom]="true"
-                 (mapDblClick)="onMapClick($event)"
-                 (mapRightClick)="onMapClick($event)"
->
+<div id="wrapper">
+  <div id="google_map">
 
-  <sebm-google-map-marker *ngFor="let item of cancers | async"
-                          [latitude]="item.lat - 0.0018" [longitude]="item.lng"
-                          [opacity]="0"
-                          [iconUrl]="'./public/images/marker1.png'"
-  >
 
-    <sebm-google-map-info-window
-                                 class="cancer-info-window"
-                                 [disableAutoPan]="true"
-                                 [zIndex]="999999"
+    <sebm-google-map id="map"
+                     [latitude]="center.lat" [longitude]="center.lng" [zoom]="center.zoom"
+                     [draggableCursor]="'pointer'"
+                     [streetViewControl]="false"
+                     [disableDoubleClickZoom]="true"
+                     (mapDblClick)="onMapClick($event)"
+                     (mapRightClick)="onMapClick($event)"
     >
-      <app-cancer [cancer]="item"></app-cancer>
-    </sebm-google-map-info-window>
 
-  </sebm-google-map-marker>
+      <sebm-google-map-marker *ngFor="let item of cancers | async"
+                              [latitude]="item.lat - 0.0018" [longitude]="item.lng"
+                              [opacity]="0"
+                              [iconUrl]="'./public/images/marker1.png'"
+      >
 
-  <sebm-google-map-circle *ngFor="let item of cancers | async"
-                          [latitude]="item.lat" [longitude]="item.lng"
-                          [fillColor]="'#FF0000'"
-                          [fillOpacity]="0.6"
-                          [radius]="100"
-                          [clickable]="false">
+        <sebm-google-map-info-window
+          class="cancer-info-window"
+          [disableAutoPan]="true"
+          [zIndex]="999999"
+        >
+          <app-cancer [cancer]="item"></app-cancer>
+        </sebm-google-map-info-window>
+
+      </sebm-google-map-marker>
+
+      <sebm-google-map-circle *ngFor="let item of cancers | async"
+                              [latitude]="item.lat" [longitude]="item.lng"
+                              [fillColor]="'#FF0000'"
+                              [fillOpacity]="0.6"
+                              [radius]="100"
+                              [clickable]="false">
 
 
-  </sebm-google-map-circle>
+      </sebm-google-map-circle>
 
 
 
 
-  <sebm-google-map-marker *ngFor="let item of events | async"
-                          [latitude]="item.lat" [longitude]="item.lng"
-                          [iconUrl]="'./public/images/bh_32.png'"
-  >
-    <sebm-google-map-info-window
-      class="event-info-window"
-      [disableAutoPan]="true"
+      <sebm-google-map-marker *ngFor="let item of events | async"
+                              [latitude]="item.lat" [longitude]="item.lng"
+                              [iconUrl]="'./public/images/bh_32.png'"
+      >
+        <sebm-google-map-info-window
+          class="event-info-window"
+          [disableAutoPan]="true"
 
-    >
-      <app-incident [incident]="item"></app-incident>
+        >
+          <app-incident [incident]="item"></app-incident>
 
-    </sebm-google-map-info-window>
-  </sebm-google-map-marker>
-</sebm-google-map>
+        </sebm-google-map-info-window>
+      </sebm-google-map-marker>
+    </sebm-google-map>
 
+  </div>
+
+  <div id="over_map">
+    <h1 class="title-main">Cancer Watch - Haifa</h1>
+    <h3 class="title-sub">בשיתוף עם מפלגת הירוקים של חיפה</h3>
+  </div>
+</div>
 
 <modal #modal>
   <modal-header [show-close]="true">
