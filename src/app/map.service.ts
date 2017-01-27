@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, Response} from "@angular/http";
-import {LatLng} from "./app.component";
 import 'rxjs/Rx';
+import {LatLng} from "./map/map.component";
 
 @Injectable()
 export class MapService {

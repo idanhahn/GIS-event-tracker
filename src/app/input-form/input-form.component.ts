@@ -3,8 +3,8 @@ import {
   EventEmitter
 } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import {LatLng, CancerEvent} from "../app.component";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {LatLng, CancerEvent} from "../map/map.component";
 
 @Component({
   selector: 'app-input-form',

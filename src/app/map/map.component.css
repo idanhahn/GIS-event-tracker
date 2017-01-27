@@ -1,0 +1,21 @@
+#map{
+  height: 100vh;
+  width: 100%;
+}
+
+
+.sebm-google-map-info-window{
+  background-color: red;
+}
+
+#wrapper { position: relative; }
+#over_map { position: absolute; top: 10px; left: 10px; z-index: 99; }
+.title-main{
+  font-size: 48px;
+  text-transform: uppercase;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.title-sub{
+  font-family: 'Suez One', sans-serif;
+  color: #3c510c;
+}

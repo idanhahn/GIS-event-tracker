@@ -2,6 +2,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
 
 import {AppComponent} from './app.component';
 import {InputFormComponent} from './input-form/input-form.component';
@@ -12,6 +14,7 @@ import {AngularFireModule} from "angularfire2";
 import {ImageUploadModule} from "angular2-image-upload/index";
 import { IncidentComponent } from './incident/incident.component';
 import { CancerComponent } from './cancer/cancer.component';
+import { MapComponent } from './map/map.component';
 
 
 // Must export the config
@@ -29,14 +32,17 @@ export const firebaseConfig = {
     AppComponent,
     InputFormComponent,
     IncidentComponent,
-    CancerComponent
+    CancerComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    
+    RouterModule.forRoot([
+      {path: '', component:MapComponent}
+    ]),
     ImageUploadModule.forRoot(),
     Ng2Bs3ModalModule,
     AgmCoreModule.forRoot({
